@@ -64,3 +64,11 @@ if (window.Telegram.WebApp) {
     console.log(`Привет, ${user.first_name}!`);
   }
                                  }
+// Загрузка
+const savedGame = localStorage.getItem('clickerGame');
+if (savedGame) gameState = JSON.parse(savedGame);
+
+// Автосохранение каждые 5 сек
+setInterval(() => {
+  localStorage.setItem('clickerGame', JSON.stringify(gameState));
+}, 5000);
