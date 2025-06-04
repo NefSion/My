@@ -52,3 +52,15 @@ setInterval(() => {
 }, 1000);
 
 updateUI();
+
+// Проверяем, что мы в Telegram
+if (window.Telegram.WebApp) {
+  const tg = window.Telegram.WebApp;
+  tg.expand();  // Разворачиваем на весь экран
+
+  // Можно использовать данные пользователя
+  const user = tg.initDataUnsafe.user;
+  if (user) {
+    console.log(`Привет, ${user.first_name}!`);
+  }
+                                 }
